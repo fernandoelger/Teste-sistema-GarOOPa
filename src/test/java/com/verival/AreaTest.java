@@ -33,7 +33,7 @@ public class AreaTest {
     // a esqueda e a direita da área
     //Valor limite: pontos em cima das retas da área
     @ParameterizedTest
-    @CsvSource({"20,20,0", "20,55,1", "65,15,4", "15,5,2", "5,15,8", ""})
+    @CsvSource({"20,20,0", "20,55,1", "65,15,4", "15,5,2", "5,15,8"})
     public void codificaPontoTest(int x, int y, int expected){
         int actual = area.codificaPonto(new Ponto(x,y));
 
