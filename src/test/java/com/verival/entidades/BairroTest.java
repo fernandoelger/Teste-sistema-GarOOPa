@@ -1,6 +1,7 @@
 package com.verival.entidades;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import com.verival.entidades.Bairro;
 import com.verival.entidades.geometria.Area;
@@ -34,5 +35,15 @@ public class BairroTest {
         Bairro bairro = Bairro.novoBairroRetangular("Petropolis", new Ponto(10,40), 20, 10, 10);
         bairro.alteraCustoTransporte(35.0);
         assertEquals(35, bairro.getCustoTransporte(), 0.0001);
+    }
+
+    @Test
+    public void alteraCustoTransporteExceptionTest() {
+        Bairro bairro = Bairro.novoBairroRetangular("Petropolis", new Ponto(10,40), 20, 10, 10);
+
+        assertThrows(IllegalArgumentException.class,
+        ()->{
+            bairro.alteraCustoTransporte(-1.0);
+        });
     }
 }

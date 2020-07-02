@@ -1,6 +1,7 @@
 package com.verival.entidades;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import com.verival.entidades.Passageiro;
 
@@ -34,5 +35,25 @@ public class PassageiroTest {
         passageiro.infoPontuacao(5);
         assertEquals(13, passageiro.getPontuacaoAcumulada());
         assertEquals(2, passageiro.getQtdadeAvaliacoes());
+    }
+
+    @Test
+    public void infoPontuacaoExceptionTest() {
+        Passageiro passageiro = Passageiro.novoPassageiro("12345678910", "Adalberto");
+        
+        assertThrows(IllegalArgumentException.class,
+        ()->{
+            passageiro.infoPontuacao(-1);
+        });
+    }
+
+    @Test
+    public void toStringTest() {
+        Passageiro passageiro = Passageiro.passageiroExistente("123456789", "Adalberto", 10, 5);
+
+        String expected = "Passageiro [cpf=" + "123456789" + ", nome=" + "Adalberto" + ", pontuacaoAcumulada=" + 10
+        + ", qtdadeAvaliacoes=" + 5 + "]";
+
+        assertEquals(expected, passageiro.toString());
     }
 }

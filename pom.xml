@@ -52,6 +52,13 @@
         --> 
     </dependencies>
 
+    <properties>
+    <sonar.projectKey>fernandoelger_Teste-sistema-GarOOPa</sonar.projectKey>
+    <sonar.organization>fernandoelger</sonar.organization>
+    <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+    <sonar.login>5c4d617cfcac0b4c3e0d9d7af9bb7a6d8dbd5e6f</sonar.login>
+    </properties>
+
     <build>
         <plugins>
             <plugin>

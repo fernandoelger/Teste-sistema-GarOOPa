@@ -1,4 +1,4 @@
-package com.verival.casosDeUso.Politicas;
+package com.verival.casosDeUso.politicas;
 
 import com.verival.entidades.Passageiro;
 import com.verival.entidades.Roteiro;

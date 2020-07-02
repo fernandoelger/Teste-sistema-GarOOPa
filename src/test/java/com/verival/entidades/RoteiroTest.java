@@ -60,4 +60,18 @@ public class RoteiroTest {
         expected.add(bairros.get(3));
         assertEquals(expected, roteiro.bairrosPercoridos());
     }
+
+    @Test
+    public void toStringTest() {
+
+        roteiro = new Roteiro(bairroOrigem, bairroDestino, bairros);
+
+        String bairroDest = "Bairro [area=" + "Area [pInfDir=" + "Ponto [x=" + 60 + ", y=" + 20 + "]" + ", pSupEsq=" + "Ponto [x=" + 40 + ", y=" + 30 + "]" + "]" + ", nome=" + "Auxiliadora" + "]";
+
+        String bairroOrig = "Bairro [area=" + "Area [pInfDir=" + "Ponto [x=" + 30 + ", y=" + 30 + "]" + ", pSupEsq=" + "Ponto [x=" + 10 + ", y=" + 40 + "]" + "]" + ", nome=" + "Bom Fim" + "]";
+
+        String expected = "Roteiro [bairroDestino=" + bairroDest + ", bairroOrigem=" + bairroOrig + "]";
+
+        assertEquals(expected, roteiro.toString());
+    }
 }

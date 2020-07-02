@@ -1,4 +1,4 @@
-package com.verival.casosDeUso.Politicas;
+package com.verival.casosDeUso.politicas;
 
 public class CalculoCustoViagemRelampago extends CalculoCustoViagemBasico {
     @Override

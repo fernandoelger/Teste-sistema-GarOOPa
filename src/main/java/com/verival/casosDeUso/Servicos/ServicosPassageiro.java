@@ -5,8 +5,8 @@ import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.verival.casosDeUso.Politicas.CustoViagem;
-import com.verival.casosDeUso.Politicas.CalculoCustoViagem;
+import com.verival.casosDeUso.politicas.CustoViagem;
+import com.verival.casosDeUso.politicas.CalculoCustoViagem;
 import com.verival.casosDeUso.Repositorios.RepositorioBairros;
 import com.verival.casosDeUso.Repositorios.RepositorioPassageiros;
 import com.verival.entidades.Bairro;

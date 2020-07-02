@@ -8,7 +8,7 @@ import static org.mockito.Mockito.when;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import com.verival.casosDeUso.Politicas.CalculoCustoViagem;
+import com.verival.casosDeUso.politicas.CalculoCustoViagem;
 import com.verival.casosDeUso.Repositorios.RepositorioBairros;
 import com.verival.casosDeUso.Repositorios.RepositorioPassageiros;
 import com.verival.casosDeUso.Servicos.ServicosPassageiro;
@@ -44,21 +44,6 @@ public class ServicosPassageiroTest {
     public void createNewServiceTest() {
       assertTrue(servicoPassageiro.getListaBairros() != null);
       assertTrue(servicoPassageiro.getPassageirosCadastrados() != null);
-    }
-
-    @Test
-    public void createNewRoadMapTest() {
-
-        Collection<Bairro> bairrosPercorridos = new ArrayList<Bairro>();
-        bairrosPercorridos.add(repoBairros.recuperaPorNome("Petropolis"));
-        bairrosPercorridos.add(repoBairros.recuperaPorNome("Vila Nova"));
-
-        when(roteiro.bairrosPercoridos()).thenReturn(bairrosPercorridos);
-
-        Object[] actual = roteiro.bairrosPercoridos().toArray();
-        Object[] expected = { repoBairros.recuperaPorNome("Petropolis"), repoBairros.recuperaPorNome("Vila Nova") };
-
-        assertArrayEquals(expected, actual);
     }
 
 }
