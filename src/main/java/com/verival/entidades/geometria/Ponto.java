@@ -17,6 +17,16 @@ public class Ponto {
         return y;
     }
 
+    @Override 
+    public boolean equals(Object outro){ 
+        if (outro instanceof Ponto){ 
+            Ponto outroP = (Ponto)outro; 
+            return ((x - outroP.x)+(y - outroP.y)) == 0; 
+        }else{ 
+            return false; 
+        }
+    }
+
     @Override
     public String toString() {
         return "Ponto [x=" + x + ", y=" + y + "]";

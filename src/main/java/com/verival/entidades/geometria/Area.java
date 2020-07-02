@@ -1,7 +1,8 @@
 package com.verival.entidades.geometria;
 
 public class Area {
-    private Ponto pSupEsq, pInfDir;
+    public static final Object nome = null;
+	private Ponto pSupEsq, pInfDir;
 
     public Area(Ponto pSupEsq, Ponto pInfDir) {
         if ((pSupEsq.getX() >= pInfDir.getX()) || (pSupEsq.getY() <= pInfDir.getY())) {
@@ -56,6 +57,17 @@ public class Area {
             }
             return SituacaoReta.INTERSECTA;
         }
+    }
+
+    @Override 
+    public boolean equals(Object outro){ 
+        if (outro instanceof Area){ 
+            Area outra = (Area)outro; 
+            return ((pSupEsq.equals(outra.pSupEsq)) && 
+                    (pInfDir.equals(outra.pInfDir))); 
+        }else{ 
+            return false; 
+        } 
     }
 
     @Override

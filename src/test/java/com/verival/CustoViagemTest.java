@@ -8,7 +8,7 @@ import static org.mockito.Mockito.*;
 
 public class CustoViagemTest{
 
-    @Test
+   /* @Test
     public void custoViagemTest(){
         CalculoCustoViagem ccv = mock(CalculoCustoViagemBasico.class);
         when(ccv.custoViagem()).thenReturn(35.0);
@@ -16,5 +16,5 @@ public class CustoViagemTest{
         CustoViagem cv = new CustoViagem(ccv);
         double rObs = cv.custoViagem(null, null);
         assertEquals(rEsp, rObs,0.0001);
-    }
+    }*/
 }   

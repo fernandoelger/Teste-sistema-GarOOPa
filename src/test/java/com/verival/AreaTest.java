@@ -1,6 +1,7 @@
 package com.verival;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import com.verival.entidades.geometria.Area;
 import com.verival.entidades.geometria.Ponto;
@@ -19,6 +20,17 @@ public class AreaTest {
     @BeforeEach
     public void setup() {
         area = new Area(new Ponto(10,50), new Ponto(60,10));
+    }
+
+    //testando a exceção do construtor com valor limte
+    @ParameterizedTest
+    @CsvSource({"20,50,20,10", "21,50,20,10", "10,30,60,30", "10,30,60,31"})
+    public void constructorExceptionTest(int p1x, int p1y, int p2x, int p2y) {
+
+        assertThrows(IllegalArgumentException.class,
+        ()->{
+            Area areaException = new Area(new Ponto(p1x,p1y),new Ponto(p2x,p2y));
+        });
     }
 
     @Test
