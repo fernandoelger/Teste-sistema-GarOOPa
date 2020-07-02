@@ -5,6 +5,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 import com.verival.casosDeUso.Politicas.CalculoCustoViagem;
 import com.verival.casosDeUso.Politicas.CalculoCustoViagemBasico;
@@ -60,7 +61,19 @@ public class CalculoCustoViagemBasicoTest {
     
     @Test
     public void calculaCustoBasicoTest() {
-        //assertEquals(80.0, ccv.calculoCustoBasico());
+
+        /*bairrosPercoridos.add(Bairro.novoBairroRetangular("Bom Fim", new Ponto(10,40), 20, 10, 10.0));
+        bairrosPercoridos.add(Bairro.novoBairroRetangular("Independencia", new Ponto(30,40), 20, 10, 20.0));
+        bairrosPercoridos.add(Bairro.novoBairroRetangular("Moinhos de Vento", new Ponto(20,30), 20, 10, 30.0));
+        bairrosPercoridos.add(Bairro.novoBairroRetangular("Auxiliadora", new Ponto(40,30), 20, 10, 20.0));
+
+        Roteiro roteiroMock = mock(Roteiro.class);
+        when(roteiroMock.bairrosPercoridos()).thenReturn(bairrosPercoridos);
+        */
+        ccv.defineRoteiro(roteiro);
+        assertEquals(roteiro, ccv.getRoteiro());
+
+        assertEquals(80.0, ccv.calculoCustoBasico());
     }
 
     @Test
@@ -75,6 +88,6 @@ public class CalculoCustoViagemBasicoTest {
 
     @Test
     public void custoViagemTest() {
-        //assertEquals(80.0, ccv.custoViagem());
+        assertEquals(80.0, ccv.custoViagem());
     }
 }
