@@ -1,14 +1,9 @@
-package com.verival.entidades.teste_unitario;
+package com.verival.entidades;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-
-import com.verival.entidades.Bairro;
-import com.verival.entidades.Passageiro;
-import com.verival.entidades.Roteiro;
-import com.verival.entidades.Viagem;
 import com.verival.entidades.geometria.Ponto;
 
 import org.junit.jupiter.api.Test;

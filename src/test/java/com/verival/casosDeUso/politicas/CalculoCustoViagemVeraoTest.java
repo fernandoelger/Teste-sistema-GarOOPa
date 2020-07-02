@@ -1,8 +1,11 @@
-package com.verival.casosDeUso.politicas.teste_unitario;
+package com.verival.casosDeUso.politicas;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 import com.verival.casosDeUso.Politicas.CalculoCustoViagem;
 import com.verival.casosDeUso.Politicas.CalculoCustoViagemVerao;
@@ -12,13 +15,16 @@ import com.verival.entidades.Roteiro;
 import com.verival.entidades.geometria.Ponto;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 public class CalculoCustoViagemVeraoTest {
     
     private ArrayList<Bairro> bairros;
+    private Collection<Bairro> bairrosPercorridos;
     private CalculoCustoViagem ccv;
+    private Roteiro roteiro;
 
     @BeforeEach
     public void setup() {
@@ -31,6 +37,9 @@ public class CalculoCustoViagemVeraoTest {
         bairros.add(Bairro.novoBairroRetangular("Moinhos de Vento", new Ponto(20,30), 20, 10, 30.0));
         bairros.add(Bairro.novoBairroRetangular("Auxiliadora", new Ponto(40,30), 20, 10, 20.0));
         bairros.add(Bairro.novoBairroRetangular("Boa Vista", new Ponto(40,20), 20, 10, 20.0));
+
+        roteiro = mock(Roteiro.class);
+        bairrosPercorridos = new ArrayList<Bairro>();
     }
 
     //Classes de Equivalencia: consegue o desconto e não consegue o desconto
@@ -38,20 +47,56 @@ public class CalculoCustoViagemVeraoTest {
     @ParameterizedTest
     @CsvSource({"30,3,72.0", "5,3,0.0","9,1,0.0"})
     public void descontoPontuacaoTest(int pontuacaoAcumulada, int qtdadeAvaliacoes, double expected) {
+        bairrosPercorridos.add(bairros.get(0));
+        bairrosPercorridos.add(bairros.get(1));
+        bairrosPercorridos.add(bairros.get(2));
+        bairrosPercorridos.add(bairros.get(3));
+
+        when(roteiro.bairrosPercoridos()).thenReturn(bairrosPercorridos);
+        ccv.defineRoteiro(roteiro);
+        
         Passageiro passageiro = Passageiro.passageiroExistente("123456789", "Adalberto", pontuacaoAcumulada, qtdadeAvaliacoes);
         ccv.definePassageiro(passageiro);
         assertEquals(expected, ccv.descontoPontuacao());
     }
 
-    //Classes de Equivalencia: consegue o desconto e não consegue o desconto
-    //Valor limite: quantidade de bairros percorridos é 2 (não consegue o desconto)
-    @ParameterizedTest
-    @CsvSource({"0,3,8.0", "1,1,0.0","0,1,0.0"})
-    public void descontoPromocaoSazonalTest(int bairroOrigem, int bairroDestino, double expected) {
+    //Classe de Equivalencia: consegue o desconto
+    @Test
+    public void descontoPromocaoSazonalTestCase1() {
 
-        Roteiro roteiro = new Roteiro(bairros.get(bairroOrigem), bairros.get(bairroDestino), bairros);
+        bairrosPercorridos.add(bairros.get(0));
+        bairrosPercorridos.add(bairros.get(1));
+        bairrosPercorridos.add(bairros.get(2));
+        bairrosPercorridos.add(bairros.get(3));
+
+        when(roteiro.bairrosPercoridos()).thenReturn(bairrosPercorridos);
         ccv.defineRoteiro(roteiro);
 
-        assertEquals(expected, ccv.descontoPromocaoSazonal());
+        assertEquals(8.0, ccv.descontoPromocaoSazonal());
+    }
+
+    //Classe de Equivalencia: não consegue o desconto
+    @Test
+    public void descontoPromocaoSazonalTestCase2() {
+
+        bairrosPercorridos.add(bairros.get(1));
+
+        when(roteiro.bairrosPercoridos()).thenReturn(bairrosPercorridos);
+        ccv.defineRoteiro(roteiro);
+
+        assertEquals(0.0, ccv.descontoPromocaoSazonal());
+    }
+
+    //Valor limite: quantidade de bairros percorridos é 2 (não consegue o desconto)
+    @Test
+    public void descontoPromocaoSazonalTestCase3() {
+
+        bairrosPercorridos.add(bairros.get(0));
+        bairrosPercorridos.add(bairros.get(1));
+
+        when(roteiro.bairrosPercoridos()).thenReturn(bairrosPercorridos);
+        ccv.defineRoteiro(roteiro);
+
+        assertEquals(0.0, ccv.descontoPromocaoSazonal());
     }
 }

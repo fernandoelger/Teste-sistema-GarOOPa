@@ -1,4 +1,4 @@
-package com.verival.casosDeUso.politicas.teste_unitario;
+package com.verival.casosDeUso.politicas;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;
@@ -62,17 +62,18 @@ public class CalculoCustoViagemBasicoTest {
     @Test
     public void calculaCustoBasicoTest() {
 
-        /*bairrosPercoridos.add(Bairro.novoBairroRetangular("Bom Fim", new Ponto(10,40), 20, 10, 10.0));
-        bairrosPercoridos.add(Bairro.novoBairroRetangular("Independencia", new Ponto(30,40), 20, 10, 20.0));
-        bairrosPercoridos.add(Bairro.novoBairroRetangular("Moinhos de Vento", new Ponto(20,30), 20, 10, 30.0));
-        bairrosPercoridos.add(Bairro.novoBairroRetangular("Auxiliadora", new Ponto(40,30), 20, 10, 20.0));
+        Roteiro roteiro = mock(Roteiro.class);
+        Collection<Bairro> bairrosPercorridos = new ArrayList<Bairro>();
+        bairrosPercorridos.add(bairros.get(0));
+        bairrosPercorridos.add(bairros.get(1));
+        bairrosPercorridos.add(bairros.get(2));
+        bairrosPercorridos.add(bairros.get(3));
 
-        Roteiro roteiroMock = mock(Roteiro.class);
-        when(roteiroMock.bairrosPercoridos()).thenReturn(bairrosPercoridos);
-        */
+        when(roteiro.bairrosPercoridos()).thenReturn(bairrosPercorridos);
+        
         ccv.defineRoteiro(roteiro);
-        assertEquals(roteiro, ccv.getRoteiro());
 
+        assertEquals(roteiro, ccv.getRoteiro());
         assertEquals(80.0, ccv.calculoCustoBasico());
     }
 
@@ -88,6 +89,16 @@ public class CalculoCustoViagemBasicoTest {
 
     @Test
     public void custoViagemTest() {
+        Roteiro roteiro = mock(Roteiro.class);
+        Collection<Bairro> bairrosPercorridos = new ArrayList<Bairro>();
+        bairrosPercorridos.add(bairros.get(0));
+        bairrosPercorridos.add(bairros.get(1));
+        bairrosPercorridos.add(bairros.get(2));
+        bairrosPercorridos.add(bairros.get(3));
+
+        when(roteiro.bairrosPercoridos()).thenReturn(bairrosPercorridos);
+        ccv.defineRoteiro(roteiro);
+
         assertEquals(80.0, ccv.custoViagem());
     }
 }

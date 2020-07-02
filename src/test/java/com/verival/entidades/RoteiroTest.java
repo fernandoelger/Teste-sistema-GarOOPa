@@ -1,4 +1,4 @@
-package com.verival.entidades.teste_unitario;
+package com.verival.entidades;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -58,6 +58,6 @@ public class RoteiroTest {
         expected.add(bairros.get(1));
         expected.add(bairros.get(2));
         expected.add(bairros.get(3));
-        //assertEquals(expected, roteiro.bairrosPercoridos());
+        assertEquals(expected, roteiro.bairrosPercoridos());
     }
 }

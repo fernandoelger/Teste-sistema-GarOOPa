@@ -1,4 +1,4 @@
-package com.verival.entidades.teste_unitario;
+package com.verival.entidades;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;

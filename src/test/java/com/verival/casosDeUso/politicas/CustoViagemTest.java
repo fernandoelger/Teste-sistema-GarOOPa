@@ -1,4 +1,4 @@
-package com.verival.casosDeUso.politicas.teste_unitario;
+package com.verival.casosDeUso.politicas;
 
 import com.verival.casosDeUso.Politicas.CalculoCustoViagemBasico;
 import com.verival.casosDeUso.Politicas.CustoViagem;
