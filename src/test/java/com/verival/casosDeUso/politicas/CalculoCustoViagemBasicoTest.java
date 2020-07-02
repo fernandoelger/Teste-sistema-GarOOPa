@@ -7,8 +7,7 @@ import static org.mockito.Mockito.when;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import com.verival.casosDeUso.politicas.CalculoCustoViagem;
-import com.verival.casosDeUso.politicas.CalculoCustoViagemBasico;
+
 import com.verival.entidades.Bairro;
 import com.verival.entidades.Passageiro;
 import com.verival.entidades.Roteiro;

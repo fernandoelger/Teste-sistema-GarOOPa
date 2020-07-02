@@ -3,7 +3,6 @@ package com.verival.entidades;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import com.verival.entidades.Bairro;
 import com.verival.entidades.geometria.Area;
 import com.verival.entidades.geometria.Ponto;
 

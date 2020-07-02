@@ -7,15 +7,12 @@ import static org.mockito.Mockito.when;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import com.verival.casosDeUso.Politicas.CalculoCustoViagem;
-import com.verival.casosDeUso.Politicas.CalculoCustoViagemRelampago;
 import com.verival.entidades.Bairro;
 import com.verival.entidades.Passageiro;
 import com.verival.entidades.Roteiro;
 import com.verival.entidades.geometria.Ponto;
 
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 

@@ -5,8 +5,6 @@ import java.util.Collection;
 
 import com.verival.entidades.geometria.Ponto;
 import com.verival.entidades.geometria.Reta;
-import com.verival.entidades.Roteiro;
-import com.verival.entidades.Bairro;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.BeforeEach;

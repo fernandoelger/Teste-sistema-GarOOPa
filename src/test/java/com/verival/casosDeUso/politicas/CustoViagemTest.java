@@ -1,11 +1,8 @@
 package com.verival.casosDeUso.politicas;
 
-import com.verival.casosDeUso.politicas.CalculoCustoViagemBasico;
-import com.verival.casosDeUso.politicas.CustoViagem;
 
 import org.junit.jupiter.api.Test;
 
-import com.verival.casosDeUso.politicas.CalculoCustoViagem;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;

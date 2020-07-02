@@ -3,8 +3,6 @@ package com.verival.entidades;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import com.verival.entidades.Passageiro;
-
 import org.junit.jupiter.api.Test;
 
 public class PassageiroTest {
